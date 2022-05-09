@@ -3,11 +3,9 @@ services:
   dev-db:
     image: postgres:13.6
     environment:
-      - POSTGRES_USER=posgres
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=dev
-      - POSTGRES_DB=dev
+      - POSTGRES_DB=nest
     ports:
-      - "5486:5486"
-    volumes:
-      - ./data/dev-db:/var/lib/postgresql/data
-    restart: always
+      - "5434:5432"
+
