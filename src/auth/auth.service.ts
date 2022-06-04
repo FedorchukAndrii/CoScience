@@ -64,7 +64,10 @@ export class AuthService {
     return this.signToken(user.id, user.email);
   }
 
-  async signToken(userID: number, email: string): Promise<{access_token: string}> {
+  async signToken(
+    userID: number,
+    email: string,
+  ): Promise<{ access_token: string }> {
     const payload: object = {
       sub: userID,
       email,
