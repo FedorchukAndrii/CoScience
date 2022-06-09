@@ -13,7 +13,7 @@ import { BookmarkModule } from './bookmark/bookmark.module';
     UserModule,
     AuthModule,
     PrismaModule,
-    BookmarkModule
+    BookmarkModule,
   ],
 })
 export class AppModule {}
