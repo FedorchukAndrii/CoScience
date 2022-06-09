@@ -1,6 +1,5 @@
 module.exports = {
   prefix: "",
-
   content: [
     './src/**/*.{html,js,ts,scss}',
   ],
