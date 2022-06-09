@@ -1,16 +1,18 @@
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-  <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" formControlName="firstName">
+<div class="container sm flex justify-around border-gray-800 shadow-md md:shadow-xl">
+  <form class="relative" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
 
-  <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" formControlName="lastName">
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
 
-  <label for="email">Email: </label>
-  <input id="email" type="email" formControlName="email" />
+    <label for="email">Email: </label>
+    <input id="email" type="email" formControlName="email"/>
 
-  <label for="password">Password: </label>
-  <input id="password" type="password" formControlName="password" />
+    <label for="password">Password: </label>
+    <input id="password" type="password" formControlName="password"/>
 
-  <p>Click a button to create user</p>
-  <button type="submit" name="submit">Submit</button>
-</form>
+    <button type="submit" name="submit">Submit</button>
+  </form>
+</div>
+
