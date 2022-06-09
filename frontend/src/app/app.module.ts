@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { NavbarComponent } from './webcomponents/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent
+    SignupComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
