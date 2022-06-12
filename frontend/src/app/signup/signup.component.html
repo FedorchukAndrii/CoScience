@@ -1,10 +1,10 @@
-<div class="flex justify-around border-gray-800">
-  <form class="p-8 shadow w-96" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    <label for="email">Email: </label>
-    <input id="email" type="email" formControlName="email"/>
+<div class="form-container">
+  <form class="form-box" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label class="form-label" for="email">Email: </label>
+    <input class="form-control" id="email" type="email" formControlName="email"/>
 
-    <label for="password">Password: </label>
-    <input id="password" type="password" formControlName="password"/>
+    <label class="form-label" for="password">Password: </label>
+    <input class="form-control" id="password" type="password" formControlName="password"/>
 
     <button type="submit" name="submit">Submit</button>
   </form>
