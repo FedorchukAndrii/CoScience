@@ -1,11 +1,5 @@
-<div class="container sm flex justify-around border-gray-800 shadow-md md:shadow-xl">
-  <form class="relative" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    <label for="first-name">First Name: </label>
-    <input id="first-name" type="text" formControlName="firstName">
-
-    <label for="last-name">Last Name: </label>
-    <input id="last-name" type="text" formControlName="lastName">
-
+<div class="flex justify-around border-gray-800">
+  <form class="p-8 shadow w-96" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <label for="email">Email: </label>
     <input id="email" type="email" formControlName="email"/>
 

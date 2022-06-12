@@ -8,11 +8,8 @@ import {FormControl, FormGroup} from "@angular/forms";
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent{
-
+export class SignupComponent {
   signupForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl('')
   })
