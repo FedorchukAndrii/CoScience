@@ -35,6 +35,7 @@ export class ProfileFormComponent implements OnInit {
     this.roles[idx].checked = !this.roles[idx].checked;
     if (this.roles[idx].checked) {
       this.checkedRoles.push(this.roles[idx]);
+      this.model.roles = this.checkedRoles;
     } else {
       this.model.roles = this.checkedRoles.filter(t => t.checked);
     }

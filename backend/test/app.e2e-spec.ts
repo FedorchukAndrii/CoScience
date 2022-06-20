@@ -3,7 +3,7 @@ import { Test } from '@nestjs/testing';
 import * as pactum from 'pactum';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
-import { AuthDto } from '../src/auth/dto';
+import { AuthDto, EditUserDto } from '../src/auth/dto';
 
 describe('App e2e test', () => {
   let app: INestApplication;
@@ -119,7 +119,23 @@ describe('App e2e test', () => {
           .inspect();
       });
     });
-    describe('Edit user', () => {});
+    describe('Edit user', () => {
+      it('should edit current user', () => {
+        const dto: EditUserDto = {
+          firstName: 'newTestName',
+          email: 'test@email.com',
+        };
+        return pactum
+          .spec()
+          .patch('/users')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAToken}',
+          })
+          .withBody(dto)
+          .expectStatus(200)
+          .inspect();
+      });
+    });
     describe('Delete user', () => {});
   });
 
