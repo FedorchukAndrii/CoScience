@@ -31,13 +31,11 @@ export class ProfileFormComponent implements OnInit {
   }
 
   onChange(id: number) {
-    const idx = this.roles.findIndex(t => t.id === id);
-    this.roles[idx].checked = !this.roles[idx].checked;
-    if (this.roles[idx].checked) {
-      this.checkedRoles.push(this.roles[idx]);
-      this.model.roles = this.checkedRoles;
-    } else {
-      this.model.roles = this.checkedRoles.filter(t => t.checked);
-    }
+    this.roles.forEach(role => {
+      if (role.id === id) {
+        role.checked = !role.checked;
+      }
+    });
+    this.model.roles = this.roles.filter(t => t.checked);
   }
 }

@@ -1,4 +1,6 @@
-export class Role {
+import {CheckboxElement} from "../interfaces/checkboxElement";
+
+export class Role implements CheckboxElement {
   constructor(
     public id: number,
     public name: string,

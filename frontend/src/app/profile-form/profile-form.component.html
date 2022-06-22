@@ -39,6 +39,7 @@
       >
       <label class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="role">{{ role.name }}</label>
     </div>
+    <app-my-checkbox [elements]="roles"></app-my-checkbox>
   </form>
 </div>
 {{ model | json}}

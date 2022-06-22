@@ -9,13 +9,15 @@ import  {FormsModule} from "@angular/forms";
 
 import { NavbarComponent } from './webcomponents/navbar/navbar.component';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
+import { MyCheckboxComponent } from './webcomponents/my-checkbox/my-checkbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     NavbarComponent,
-    ProfileFormComponent
+    ProfileFormComponent,
+    MyCheckboxComponent
   ],
   imports: [
     BrowserModule,
