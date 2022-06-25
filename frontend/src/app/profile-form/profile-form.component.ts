@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { Profile } from "../classes/profile";
 import {Role} from "../classes/role";
 import {RoleService} from "../shared/role.service";
+import {CheckboxElement} from "../interfaces/checkboxElement";
+import {InterestService} from "../shared/interest.service";
+import {Interest} from "../classes/interest";
 
 @Component({
   selector: 'app-profile-form',
@@ -10,19 +13,20 @@ import {RoleService} from "../shared/role.service";
 })
 export class ProfileFormComponent implements OnInit {
 
-  interests = ['Angular', 'React', 'Vue'];
+  interests: Interest[] = [];
   roles: Role[] = [];
   checkedRoles: Role[] = [];
-  model = new Profile(188, 'Johny', 'Noxwill', this.interests[0], this.checkedRoles);
+  model = new Profile(188, 'Johny', 'Noxwill', this.interests, this.checkedRoles);
   submitted = false;
 
-  constructor(private rolesService: RoleService) {
+  constructor(private rolesService: RoleService, private interestService: InterestService) {
   }
 
   onSubmit() { this.submitted = true; }
 
   ngOnInit(): void {
     this.getRoles();
+    this.getInterests();
   }
 
   getRoles(): void {
@@ -30,12 +34,12 @@ export class ProfileFormComponent implements OnInit {
       .subscribe(roles => this.roles = roles);
   }
 
-  onChange(id: number) {
-    this.roles.forEach(role => {
-      if (role.id === id) {
-        role.checked = !role.checked;
-      }
-    });
-    this.model.roles = this.roles.filter(t => t.checked);
+  getInterests(): void {
+    this.interestService.getInterests()
+      .subscribe(interests => this.interests = interests);
+  }
+
+  addCheckedRoles (checkedElements: CheckboxElement[]) {
+    this.model.roles = checkedElements;
   }
 }

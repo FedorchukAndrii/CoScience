@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {CheckboxElement} from "../../interfaces/checkboxElement";
 
 @Component({
@@ -7,6 +7,8 @@ import {CheckboxElement} from "../../interfaces/checkboxElement";
   styleUrls: ['./my-checkbox.component.scss']
 })
 export class MyCheckboxComponent implements OnInit {
+  @Output() checkedElements: EventEmitter<CheckboxElement[]> = new EventEmitter<CheckboxElement[]>();
+
 
   @Input() elements?: Array<CheckboxElement> =  [];
 
@@ -21,6 +23,7 @@ export class MyCheckboxComponent implements OnInit {
        element.checked = !element.checked;
      }
    });
+   this.checkedElements.emit(this.elements?.filter(t => t.checked));
   }
 
 }
