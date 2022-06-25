@@ -11,7 +11,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class SignupComponent {
   signupForm = new FormGroup({
     email: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''),
+    confirmPassword: new FormControl('')
   })
 
   constructor(private http: HttpClient) { }

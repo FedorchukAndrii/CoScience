@@ -23,3 +23,7 @@
 .form-label {
   @apply block text-sm font-medium text-slate-700;
 }
+
+.submit-btn {
+  @apply py-2 my-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400;
+}

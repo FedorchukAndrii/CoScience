@@ -28,6 +28,7 @@
         <option *ngFor="let interest of interests" [value]="interest">{{interest.name}}</option>
       </select>
     </div>
+    <button class="submit-btn" type="submit" name="submit">Submit</button>
   </form>
 
   <app-my-checkbox class="form-box" [elements]="roles" (checkedElements)="addCheckedRoles($event)"></app-my-checkbox>

@@ -1,17 +1,14 @@
 <div class="form-container">
-  <form class="form-box" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <form class="form-box" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
     <label class="form-label" for="email">Email: </label>
     <input class="form-control" id="email" type="email" formControlName="email"/>
 
     <label class="form-label" for="password">Password: </label>
     <input class="form-control" id="password" type="password" formControlName="password"/>
 
-    <label class="form-label" for="confirmPassword">Confirm Password: </label>
-    <input class="form-control" id="confirmPassword" type="password" formControlName="confirmPassword"/>
     <button class="submit-btn" type="submit" name="submit">Submit</button>
     <br>
     <br>
-    <a class="text-purple-500 no-underline hover:underline" routerLink="/login">Klicken, wenn ein Konto schon existiert</a>
+    <a class="text-purple-500 no-underline hover:underline" routerLink="/signup">Klicken, wenn noch kein Konto existiert</a>
   </form>
 </div>
-
