@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {User} from "../classes/user";
-import {HttpClient} from "@angular/common/http";
+import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {AuthService} from "../shared/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -11,20 +11,22 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class SignupComponent {
   signupForm = new FormGroup({
     email: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl('')
+    password: new FormControl('')
   })
 
-  constructor(private http: HttpClient) { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-
-    this.http.post(
-      'http://localhost:3333/auth/signup',
-      new User(this.signupForm.get('email')?.value, this.signupForm.get('password')?.value),
-      {responseType: 'text'}).subscribe(data => console.log(data));
+  registerUser() {
+    this.authService.signUp(this.signupForm.value).subscribe((res) => {
+      if (res.status === "201") {
+        console.log(res);
+        this.signupForm.reset();
+        this.router.navigate(['/login']);
+      }
+    });
   }
 }

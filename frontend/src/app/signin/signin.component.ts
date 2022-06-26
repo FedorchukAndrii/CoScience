@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../classes/user";
+import {AuthService} from "../shared/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signin',
@@ -9,21 +11,18 @@ import {User} from "../classes/user";
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-  signinForm = new FormGroup({
+  loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
   })
 
-  constructor(private http: HttpClient) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-
-    this.http.post(
-      'http://localhost:3333/auth/signin',
-      new User(this.signinForm.get('email')?.value, this.signinForm.get('password')?.value),
-      {responseType: 'text'}).subscribe(data => console.log(data));
+  loginUser() {
+    this.authService.signIn(this.loginForm.value);
   }
+
 }

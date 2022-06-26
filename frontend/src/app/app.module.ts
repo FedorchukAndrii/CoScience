@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import  {FormsModule} from "@angular/forms";
 
@@ -11,6 +11,7 @@ import { NavbarComponent } from './webcomponents/navbar/navbar.component';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { MyCheckboxComponent } from './webcomponents/my-checkbox/my-checkbox.component';
 import { SigninComponent } from './signin/signin.component';
+import {AuthInterceptor} from "./shared/authconfig.interceptor";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { SigninComponent } from './signin/signin.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

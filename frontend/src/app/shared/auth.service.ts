@@ -8,7 +8,7 @@ import {catchError, map, Observable, throwError} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
-  endpoint = 'http://localhost:3333/auth/';
+  endpoint = 'http://localhost:3333/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser: {} = {};
 
@@ -16,18 +16,18 @@ export class AuthService {
 
   // SignUp
   signUp(user: User): Observable<any> {
-    let api = this.endpoint + 'signup';
+    let api = this.endpoint + 'auth/signup';
     return this.http.post(api, user).pipe(catchError(this.handleError));
   }
 
   // SignIn
   signIn(user: User) {
-    let api = this.endpoint + 'signin';
+    let api = this.endpoint + 'auth/signin';
     return this.http
       .post(api, user, {headers: this.headers})
       .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token);
-        this.getUserProfile(res.id).subscribe((res) => {
+        localStorage.setItem('access_token', res.access_token);
+        this.getUserProfile().subscribe((res) => {
           this.currentUser = res;
           this.router.navigate(['/profile']);
         })
@@ -50,8 +50,8 @@ export class AuthService {
     }
   }
 
-  getUserProfile(id: number): Observable<any> {
-    let api = this.endpoint + 'user/' + id;
+  getUserProfile(): Observable<any> {
+    let api = this.endpoint + 'users/me';
     return this.http.get(api, {headers: this.headers})
       .pipe(map(res => {
         return res || {};
