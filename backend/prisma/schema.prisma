@@ -21,8 +21,23 @@ model User {
   firstName String?
   lastName String?
   bookmarks Bookmark[]
+  interests Interest[]
 
   @@map("users")
+}
+
+model Interest{
+  id Int @id @default(autoincrement())
+
+  name String @unique
+  description String?
+  checked Boolean @default(false)
+  focus String[]
+
+
+  users User[]
+
+  @@map("interests") 
 }
 
 model Bookmark {
