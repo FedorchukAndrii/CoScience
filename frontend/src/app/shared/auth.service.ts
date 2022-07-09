@@ -3,12 +3,13 @@ import {HttpClient, HttpHeaders, HttpErrorResponse} from "@angular/common/http";
 import {User} from "../classes/user";
 import {Router} from "@angular/router";
 import {catchError, map, Observable, throwError} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  endpoint = 'http://localhost:3333/';
+  endpoint = environment.apiUrl;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser: {} = {};
 
@@ -43,7 +44,7 @@ export class AuthService {
     return authToken !== null;
   }
 
-  logout() {
+  logout(): void {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
       this.router.navigate(['/login']);
@@ -61,7 +62,7 @@ export class AuthService {
   }
 
   handleError(error: HttpErrorResponse) {
-    let msg = '';
+    let msg;
     if (error.error instanceof ErrorEvent) {
       // client-side error
       msg = error.error.message;

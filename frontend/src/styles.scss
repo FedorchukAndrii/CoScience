@@ -25,5 +25,30 @@
 }
 
 .submit-btn {
-  @apply py-2 my-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400;
+  @apply py-2 my-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-slate-700 bg-amber-400 hover:bg-amber-500;
+}
+.btn-active {
+  @apply text-slate-800 bg-amber-600 hover:bg-amber-600;
+}
+
+.table-container {
+  @apply relative overflow-x-auto shadow-md sm:rounded-lg;
+}
+
+.tbl {
+  @apply w-full text-sm text-left text-gray-500 dark:text-gray-400;
+}
+th, td {
+  @apply px-4 py-2;
+}
+.tbl-header {
+  @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+}
+
+.tbl-body-th {
+  @apply font-medium text-gray-900 dark:text-white whitespace-nowrap;
+}
+
+.tbl-body-tr {
+  @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600;
 }

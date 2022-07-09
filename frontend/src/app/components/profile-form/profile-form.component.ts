@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import { Profile } from "../classes/profile";
-import {Role} from "../classes/role";
-import {RoleService} from "../shared/role.service";
-import {CheckboxElement} from "../interfaces/checkboxElement";
-import {InterestService} from "../shared/interest.service";
-import {Interest} from "../classes/interest";
-import {AuthService} from "../shared/auth.service";
+import { Profile } from "../../classes/profile";
+import {Role} from "../../classes/role";
+import {RoleService} from "../../shared/role.service";
+import {CheckboxElement} from "../../interfaces/checkboxElement";
+import {InterestService} from "../../shared/interest.service";
+import {Interest} from "../../classes/interest";
+import {AuthService} from "../../shared/auth.service";
 
 @Component({
   selector: 'app-profile-form',

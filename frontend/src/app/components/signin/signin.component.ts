@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {User} from "../classes/user";
-import {AuthService} from "../shared/auth.service";
-import {Router} from "@angular/router";
+import {AuthService} from "../../shared/auth.service";
 
 @Component({
   selector: 'app-signin',
@@ -16,7 +13,7 @@ export class SigninComponent implements OnInit {
     password: new FormControl('')
   })
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
