@@ -14,4 +14,8 @@ export class AdministrationService {
   getInterests(): Observable<any> {
     return this.http.get(this.endpoint + 'administration/interests');
   }
+
+  getRoles(): Observable<any> {
+    return this.http.get(this.endpoint + 'administration/roles');
+  }
 }

@@ -18,4 +18,13 @@ export class AdministrationController {
     @Put('interests')
     putInterests() {
     }    
+
+    @Get('roles')
+    getRoles() {
+        return this.administrationService.getRoles();
+    }
+
+    @Put('roles') 
+    putRoles() {
+    }
 }

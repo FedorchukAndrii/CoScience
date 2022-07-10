@@ -2,7 +2,7 @@ import { Body, Controller, Get, Patch, UseGuards } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { JwtGuard } from '../auth/guard';
 import { GetUser } from '../auth/decorator';
-import { EditUserDto } from '../auth/dto';
+import { EditUserDto } from '../dto';
 import { UserService } from './user.service';
 
 @Controller('users')

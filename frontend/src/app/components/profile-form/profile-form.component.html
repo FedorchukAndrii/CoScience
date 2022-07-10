@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form class="form-box" #profileForm="ngForm">
+  <form class="form-box" #profileForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label class="form-label" for="firstname">First Name: </label>
       <input

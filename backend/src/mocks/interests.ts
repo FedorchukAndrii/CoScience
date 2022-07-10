@@ -1,4 +1,4 @@
-import { InterestDto } from "src/auth/dto/interest.dto";
+import { InterestDto } from "src/dto/interest.dto";
 
 export const INTERESTS: InterestDto[] = [
     {id: 1, name: 'Aktivismus', description: '', checked: false, focus: Array(0)},

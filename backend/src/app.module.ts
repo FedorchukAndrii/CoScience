@@ -3,9 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
-import { BookmarkModule } from './bookmark/bookmark.module';
 import { AdministrationService } from './admin/administration/administration.service';
 import { AdministrationController } from './admin/administration/administration.controller';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ import { AdministrationController } from './admin/administration/administration.
     UserModule,
     AuthModule,
     PrismaModule,
-    BookmarkModule,
+    ProfileModule,
   ],
   providers: [AdministrationService],
   controllers: [AdministrationController],
