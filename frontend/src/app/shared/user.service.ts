@@ -14,4 +14,8 @@ export class UserService {
   getUsers(): Observable<any> {
     return this.http.get(this.endpoint + 'users/all');
   }
+
+  getMe(): Observable<any> {
+    return this.http.get(this.endpoint + 'users/me');
+  }
 }

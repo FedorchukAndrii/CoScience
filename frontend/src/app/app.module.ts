@@ -16,6 +16,7 @@ import { AdministrationComponent } from './components/administration/administrat
 import { UsersComponent } from './components/administration/users/users.component';
 import { InterestsComponent } from './components/administration/interests/interests.component';
 import { RolesComponent } from './components/administration/roles/roles.component';
+import { MyMultiselectComponent } from './webcomponents/my-multiselect/my-multiselect.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RolesComponent } from './components/administration/roles/roles.componen
     AdministrationComponent,
     UsersComponent,
     InterestsComponent,
-    RolesComponent
+    RolesComponent,
+    MyMultiselectComponent
   ],
   imports: [
     BrowserModule,

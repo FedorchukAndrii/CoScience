@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProfileDto } from 'src/dto/profile.dto';
+import { RoleDto } from 'src/dto/role.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -22,7 +23,7 @@ export class ProfileService {
             firstname: dto.firstName,
             lastname: dto.lastName,
             interests: { connect: dto.interests },
-            roles: { connect: dto.roles },
+            roles: {connect: dto.roles.map(role => ({id: role.id})) || []},
             bio: dto.bio,
             location: dto.location,
             city: dto.city,

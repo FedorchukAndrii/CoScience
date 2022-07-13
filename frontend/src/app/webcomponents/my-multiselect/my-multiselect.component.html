@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <span>{{placeholder}}</span>
+  </div>
+  <input type="text" multiple>
+  <ul>
+    <li *ngFor="let element of elements" [value]="element">{{element.name}}</li>
+  </ul>
+  <select multiple>
+    <option *ngFor="let element of elements" [value]="element">{{element.name}}</option>
+  </select>
+</div>

@@ -8,6 +8,7 @@ import {Interest} from "../../classes/interest";
 import {AuthService} from "../../shared/auth.service";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {UserService} from "../../shared/user.service";
 
 @Component({
   selector: 'app-profile-form',
@@ -20,24 +21,25 @@ export class ProfileFormComponent implements OnInit {
   interests: Interest[] = [];
   roles: Role[] = [];
   checkedRoles: Role[] = [];
-  model = new Profile(1, 'Johny', 'Noxwill', this.interests, this.checkedRoles);
+  model = new Profile(0,'', '', [], this.checkedRoles);
   submitted = false;
 
   constructor(
     private rolesService: RoleService,
     private interestService: InterestService,
     private authService: AuthService,
+    private userService: UserService,
     private http: HttpClient
   ) {}
-
-  onSubmit() {
-    return this.http.post(this.endpoint + 'profile/create/', this.model).subscribe(data => console.log(data));
-  }
 
   ngOnInit(): void {
     this.getRoles();
     this.getInterests();
-    this.getProfile();
+    this.getUserId();
+  }
+
+  onSubmit() {
+    return this.http.post(this.endpoint + 'profile/create/', this.model).subscribe(data => console.log(data));
   }
 
   getRoles(): void {
@@ -54,10 +56,8 @@ export class ProfileFormComponent implements OnInit {
     this.model.roles = checkedElements;
   }
 
-  getProfile(): void {
-    this.authService.getUserProfile().subscribe(profile => {
-      this.model.firstname = profile.firstname;
-      this.model.lastname = profile.lastname;
-    })
+  getUserId(): void {
+    this.userService.getMe().subscribe(data => this.model.userId = parseInt(data.id));
   }
+
 }

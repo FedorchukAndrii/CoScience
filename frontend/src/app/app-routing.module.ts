@@ -8,6 +8,7 @@ import {AdministrationComponent} from "./components/administration/administratio
 import {UsersComponent} from "./components/administration/users/users.component";
 import {InterestsComponent} from "./components/administration/interests/interests.component";
 import {RolesComponent} from "./components/administration/roles/roles.component";
+import {MyMultiselectComponent} from "./webcomponents/my-multiselect/my-multiselect.component";
 
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
       {path: 'roles', component: RolesComponent},
     ],
   },
+  {path: 'multiselect', component: MyMultiselectComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
