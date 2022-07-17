@@ -17,6 +17,12 @@ import { UsersComponent } from './components/administration/users/users.componen
 import { InterestsComponent } from './components/administration/interests/interests.component';
 import { RolesComponent } from './components/administration/roles/roles.component';
 import { MyMultiselectComponent } from './webcomponents/my-multiselect/my-multiselect.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from "@angular/material/input";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -37,7 +43,13 @@ import { MyMultiselectComponent } from './webcomponents/my-multiselect/my-multis
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [
     {
