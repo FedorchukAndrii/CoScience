@@ -7,11 +7,11 @@ export class ProfileDto {
 
   @IsString()
   @IsOptional()
-  firstName?: string;
+  firstname?: string;
 
   @IsString()
   @IsOptional()
-  lastName?: string;
+  lastname?: string;
 
   @IsArray()
   @IsOptional()  

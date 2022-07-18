@@ -19,8 +19,8 @@ export class ProfileService {
         const profile = await this.prisma.profile.create({
           data: {
             userId: dto.userId,
-            firstname: dto.firstName,
-            lastname: dto.lastName,
+            firstname: dto.firstname,
+            lastname: dto.lastname,
             interests: { connect: dto.interests },
             roles: {connect: dto.roles.map(role => ({id: role.id})) || []},
             bio: dto.bio,
@@ -35,8 +35,8 @@ export class ProfileService {
         const profile = await this.prisma.profile.update({
           data: {
             userId: dto.userId,
-            firstname: dto.firstName,
-            lastname: dto.lastName,
+            firstname: dto.firstname,
+            lastname: dto.lastname,
             interests: { connect: dto.interests },
             roles: { connect: dto.roles },
             bio: dto.bio,
