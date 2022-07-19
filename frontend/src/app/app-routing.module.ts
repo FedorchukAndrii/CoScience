@@ -8,11 +8,12 @@ import {AdministrationComponent} from "./components/administration/administratio
 import {UsersComponent} from "./components/administration/users/users.component";
 import {InterestsComponent} from "./components/administration/interests/interests.component";
 import {RolesComponent} from "./components/administration/roles/roles.component";
-import {MyMultiselectComponent} from "./webcomponents/my-multiselect/my-multiselect.component";
+import { MyProfileComponent } from 'src/app/components/my-profile/my-profile.component';
 
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
-  {path: 'profile', component: ProfileFormComponent, canActivate: [AuthGuard]},
+  {path: 'edit-profile', component: ProfileFormComponent, canActivate: [AuthGuard]},
+  {path: 'my-profile', component: MyProfileComponent, canActivate: [AuthGuard]},
   {path: 'login', component: SigninComponent},
   {
     path: 'administration',
@@ -23,8 +24,7 @@ const routes: Routes = [
       {path: 'roles', component: RolesComponent},
     ],
   },
-  {path: 'multiselect', component: MyMultiselectComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'}
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
 ];
 
 @NgModule({

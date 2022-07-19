@@ -51,8 +51,6 @@ model Interest {
   focus String[]
 
   profile Profile[]
-
-  @@map("interests") 
 }
 
 model Role {

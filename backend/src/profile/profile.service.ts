@@ -21,7 +21,7 @@ export class ProfileService {
             userId: dto.userId,
             firstname: dto.firstname,
             lastname: dto.lastname,
-            interests: { connect: dto.interests },
+            interests: {connect: dto.interests.map(interest => ({id: interest.id})) || []},
             roles: {connect: dto.roles.map(role => ({id: role.id})) || []},
             bio: dto.bio,
             location: dto.location,

@@ -16,13 +16,13 @@ import { AdministrationComponent } from './components/administration/administrat
 import { UsersComponent } from './components/administration/users/users.component';
 import { InterestsComponent } from './components/administration/interests/interests.component';
 import { RolesComponent } from './components/administration/roles/roles.component';
-import { MyMultiselectComponent } from './webcomponents/my-multiselect/my-multiselect.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from "@angular/material/input";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import {MatIconModule} from "@angular/material/icon";
     UsersComponent,
     InterestsComponent,
     RolesComponent,
-    MyMultiselectComponent
+    MyProfileComponent,
   ],
   imports: [
     BrowserModule,
